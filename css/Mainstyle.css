@@ -74,3 +74,57 @@ li {
   .leftItem{
     padding: 20px;
   }
+
+  .img{
+    width: 2vw;
+  }
+  .especialA:hover{
+    background-color: white;
+  }
+
+  .formDiv{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+  }
+  .form > input{
+    width: 20vw;
+    height: 2vw;
+    font-size: 20pt;
+    border-radius: 1px;
+  }
+
+  .form > label{
+    font-size: 25pt;
+  }
+
+  .botao{
+      background-color: rgb(0, 0, 0);
+      box-shadow: #000000;
+      color: white;
+      font-style: italic;
+      font-weight: bolder;
+      font-size: 20pt;
+      align-self: center;
+      margin-top: 10px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      border-radius:30px;
+      width: 40%;
+      height: 50%;
+      
+  }
+
+  .botao:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+  
+  }
