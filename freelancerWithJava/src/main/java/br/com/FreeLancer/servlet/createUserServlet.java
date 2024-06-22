@@ -1,5 +1,6 @@
 package br.com.FreeLancer.servlet;
 
+import br.com.FreeLancer.controller.PeopleController;
 import br.com.FreeLancer.model.People;
 
 import javax.servlet.ServletException;
@@ -14,14 +15,15 @@ import java.io.IOException;
 public class createUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String nome = req.getParameter("nome");
-        String sobrenome = req.getParameter("sobrenome");
+        String nome = req.getParameter("nome").toLowerCase();
+        String sobrenome = req.getParameter("sobrenome").toLowerCase();
         String pass = req.getParameter("pass");
-        String userName = req.getParameter("userName");
-        String email = req.getParameter("email");
+        String userName = req.getParameter("userName").toLowerCase();
+        String email = req.getParameter("email").toLowerCase();
 
         People people = new People(userName,pass,nome,sobrenome,email);
-
+        PeopleController pc = new PeopleController();
+        pc.createCad(people);
         System.out.println(people);
 
         req.getRequestDispatcher("index.html").forward(req, resp);
