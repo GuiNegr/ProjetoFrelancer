@@ -26,6 +26,6 @@ public class createUserServlet extends HttpServlet {
         pc.createCad(people);
         System.out.println(people);
 
-        req.getRequestDispatcher("index.html").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }
