@@ -8,6 +8,11 @@ public class People {
     String email;
 
 
+    public People(String userName, String pass) {
+        this.userName = userName;
+        this.pass = pass;
+    }
+
     public People(String userName, String pass, String nome, String sobrenome, String email) {
         this.userName = userName;
         this.pass = pass;

@@ -2,10 +2,7 @@ package br.com.FreeLancer.controller;
 
 import br.com.FreeLancer.model.People;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class PeopleController {
 
@@ -39,6 +36,29 @@ public class PeopleController {
             System.out.println("CAD LOGIN FEITO");
         }catch (SQLException e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean verify(People people){
+        String sql = "select * from login where userFK = ?";
+
+        try {
+            Connection connection = new Connecta().conecta();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, people.getUserName());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                String pass = resultSet.getString("pass");
+
+                if(pass.equals(people.getPass())){
+                    return true;
+                }
+            }
+            return false;
+        }catch (SQLException e){
+            System.out.println("ERROR VERIFY "+e.getMessage());
+            return false;
         }
     }
 }
