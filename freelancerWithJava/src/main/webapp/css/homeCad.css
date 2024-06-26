@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+*{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li {
+    float: right;
+  }
+
+  .ulnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6fcf00;
+    color: white;
+    text-align: right;
+    
+  }
+
+  li a {
+    display: flex;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: 800;
+    font-style: bold;
+    font-size: 20pt;
+  }
+
+  li a:hover {
+    background-color: #000000;
+  }
+
+  .especialA:hover{
+    background-color: white;
+  }
+
+  .mainDiv{
+    width: 100vw;
+    height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgDivPerfilLeft{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .img{
+    width: 30vw;
+  }
+
+  .formPerfil{
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    padding: 25px 30px;
+    background: #4f00eb;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.432);
+    margin-top: 40px;
+  }
+
+  .textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textfield > input {
+    width: 90%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.432);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label {
+    color: rgba(211, 255, 253, 0.712);
+    margin-bottom: 10px;
+}
+
+.btnLeft {
+    display: inline-block;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .btnLeft:hover {background-color: #3e8e41}
+  
+  .btnLeft:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .img2{
+    width: 2vw;
+  }
+
+  .especialA:hover{
+    background-color: white;
+  }

@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 
         if (verify) {
             req.getSession().setAttribute("loggedUSer", userName);
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("homeCad.jsp");
         } else {
             req.setAttribute("message", "Erro de credencial");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
