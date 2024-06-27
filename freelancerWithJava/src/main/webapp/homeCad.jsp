@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,29 +24,30 @@
             </div>
     <!--OQUE ESTÁ A DIREITA COM O FORMULARIO CARREGANDO O HHTPSESSION-->
             <div class="formPerfil">
-                    <form action="ProfileServlet" method = "post" class="form">
+                <c:set var="user" value="${pessoa}" />
 
-                <div class="textfield">
+                    <form action="ProfileServlet" method = "get" class="form">
+                        <div class="textfield">
                         <label for="" class="lbNome">Nome</label>
-                        <input type="text" name="" id="" class="inpNom">
+                        <input type="text" name="nome" id="nome" class="inpNom">
                     </div>
                     
                     <div class="textfield">
                         <label for="" class="lbSobrenome">Sobrenome</label>
-                        <input type="text" name="" id="" class="inpSobr">
+                        <input type="text" name="sobrenome" id="sobrenome" class="inpSobr">
                     </div>
 
                     <div class="textfield">
                         <label for="" class="lbTelefone">Telefone</label>
-                        <input type="text" name="" id="" class="inpTele">
+                        <input type="text" name="telefone" id="telefone" class="inpTele">
                     </div>
                         <div class="textfield">
                         <label for="" class="lblEmail">E-MAIL</label>
-                        <input type="text" name="" id="" class="inpEmail">
+                        <input type="text" name="email" id="email" class="inpEmail">
                     </div>
                         <div class="textfield">
                         <label for="" class="lblME">SOBRE MIN</label>
-                        <input type="text" name="" id="" class="inptSOBRE">
+                        <input type="text" name="aboutme" id="aboutme" class="inptSOBRE">
                     </div>
                         <button type="submit" class="btnLeft">Salvar alterações</button>
                     </form>
