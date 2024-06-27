@@ -22,7 +22,7 @@
             </div>
     <!--OQUE ESTÁ A DIREITA COM O FORMULARIO CARREGANDO O HHTPSESSION-->
             <div class="formPerfil">
-                    <form action="">
+                    <form action="ProfileServlet" method = "post" class="form">
 
                 <div class="textfield">
                         <label for="" class="lbNome">Nome</label>

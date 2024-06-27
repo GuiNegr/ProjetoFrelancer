@@ -6,7 +6,16 @@ public class People {
     String nome;
     String sobrenome;
     String email;
+    String aboutMe;
 
+
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
+    }
 
     public People(String userName, String pass) {
         this.userName = userName;

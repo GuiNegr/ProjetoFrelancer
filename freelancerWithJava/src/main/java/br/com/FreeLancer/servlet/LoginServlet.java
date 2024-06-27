@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -24,8 +25,13 @@ public class LoginServlet extends HttpServlet {
         Boolean verify = pc.verify(people);
 
         if (verify) {
-            req.getSession().setAttribute("loggedUSer", userName);
-            resp.sendRedirect("homeCad.jsp");
+
+            people = pc.returnLogin(people);
+
+            HttpSession session = req.getSession();
+            session.setAttribute("pessoa",people);
+
+            req.getRequestDispatcher("/ProfileServlet").forward(req,resp);
         } else {
             req.setAttribute("message", "Erro de credencial");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

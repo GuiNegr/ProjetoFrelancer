@@ -61,4 +61,32 @@ public class PeopleController {
             return false;
         }
     }
+
+    public People returnLogin(People people){
+        String sql = "SELECT * FROM FreeLAPeople WHERE USERNAME = ?";
+        try {
+            Connection connection = new Connecta().conecta();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,people.getUserName());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+            String sobrenome = resultSet.getString("sobrenome");
+            String email = resultSet.getString("email");
+            String about = resultSet.getString("aboutMe");
+
+            if(about == null){
+                about = "DIGITE SOBRE VOCE";
+            }
+            people.setEmail(email);
+            people.setSobrenome(sobrenome);
+            people.setAboutMe(about);
+            return people;
+            }
+            return people;
+        }catch (SQLException e){
+            System.out.println("ERROR RETURN LOGIN: "+e.getMessage());
+            return null;
+        }
+    }
 }
