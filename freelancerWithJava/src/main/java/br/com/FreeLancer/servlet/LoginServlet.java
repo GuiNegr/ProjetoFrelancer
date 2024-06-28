@@ -25,13 +25,12 @@ public class LoginServlet extends HttpServlet {
         boolean verify = pc.verify(people);
 
         if (verify) {
-
             people = pc.returnLogin(people);
 
             HttpSession session = req.getSession();
             session.setAttribute("pessoa",people);
             System.out.println(people);
-            resp.sendRedirect("ProfileServlet");
+            resp.sendRedirect("/ProfileServlet");
         } else {
             req.setAttribute("message", "Erro de credencial");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
