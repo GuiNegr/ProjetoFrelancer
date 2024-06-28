@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +13,24 @@
             <li><a href="index.jsp" class="especialA"><img src="img/volte.png" alt="Voltar" class="img" ></a></li>
         </ul>
     </nav>
+        <div class="mainDiv">
 
     <div class="formDiv">
-      <form action="login-servlet" class="form" method="post">
-        <label for="">USERNAME</label>
-        <input type="text" name="username" id="username">
-        <label for="">SENHA</label>
-        <input type="password" name="password" id="password">
-        <button type="submit" class="botao">ENVIAR</button>
-      </form>
-    </div>
+      
+        
+        <form action="login-servlet" class="form" method="post">
+          <div class="textfield">
+          <label for="">USERNAME</label>
+          <input type="text" name="username" id="username">
+          </div>
+          <div class="textfield">
+          <label for="">SENHA</label>
+          <input type="password" name="password" id="password">
+          </div>
+          <button type="submit" class="btnLeft">ENVIAR</button>
+        </form>
+      </div>
+
+        </div>
 </body>
 </html>

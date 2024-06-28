@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -21,11 +22,15 @@ public class LoginServlet extends HttpServlet {
 
         People people = new People(userName,pass);
         PeopleController pc = new PeopleController();
-        Boolean verify = pc.verify(people);
+        boolean verify = pc.verify(people);
 
         if (verify) {
-            req.getSession().setAttribute("loggedUSer", userName);
-            resp.sendRedirect("homeCad.jsp");
+            people = pc.returnLogin(people);
+
+            HttpSession session = req.getSession();
+            session.setAttribute("pessoa",people);
+            System.out.println(people);
+            resp.sendRedirect("/ProfileServlet");
         } else {
             req.setAttribute("message", "Erro de credencial");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
@@ -36,6 +41,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req,resp);
+
     }
 }

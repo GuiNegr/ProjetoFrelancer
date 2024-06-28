@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,41 +11,42 @@
 <body>
     <nav class="menu">
         <ul class="ulnav">
-            <li><a href="login.jsp" class="especialA"><img src="img/volte.png" alt="" class="img2">
+            <li><a href="index.jsp" class="especialA"><img src="img/volte.png" alt="" class="img2"></a></li>
         </ul>
+    </nav>
     <div class="mainDiv">
         <!--OQUE ESTÁ A ESQUERDA COM IMAGEN E A OPÇÃO DE LEVAR O ARQUIVO-->
             <div class="imgDivPerfilLeft">
-                    <form action="" class="FormPerfil">
+                    <form class="FormPerfil">
                     <img src="img/Building hashtag-amico.svg" alt="" class="img">
                     <button type="submit" class="btnLeft">Buscar imagen</button>
-                    </form>
+             </form>
             </div>
     <!--OQUE ESTÁ A DIREITA COM O FORMULARIO CARREGANDO O HHTPSESSION-->
             <div class="formPerfil">
-                    <form action="">
+                    <form action="/ProfileServlet" method="get">
 
                 <div class="textfield">
-                        <label for="" class="lbNome">Nome</label>
-                        <input type="text" name="" id="" class="inpNom">
+                        <label for="nome" class="lbNome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="inpNom" >
                     </div>
                     
                     <div class="textfield">
-                        <label for="" class="lbSobrenome">Sobrenome</label>
-                        <input type="text" name="" id="" class="inpSobr">
+                        <label for="sobrenome" class="lbSobrenome">Sobrenome</label>
+                        <input type="text" name="sobrenome" id="sobrenome" class="inpSobr">
                     </div>
 
                     <div class="textfield">
-                        <label for="" class="lbTelefone">Telefone</label>
-                        <input type="text" name="" id="" class="inpTele">
+                        <label for="telefone" class="lbTelefone">Telefone</label>
+                        <input type="text" name="telefone" id="telefone" class="inpTele">
                     </div>
                         <div class="textfield">
-                        <label for="" class="lblEmail">E-MAIL</label>
-                        <input type="text" name="" id="" class="inpEmail">
+                        <label for="email" class="lblEmail">E-MAIL</label>
+                        <input type="text" name="email" id="email" class="inpEmail">
                     </div>
                         <div class="textfield">
-                        <label for="" class="lblME">SOBRE MIN</label>
-                        <input type="text" name="" id="" class="inptSOBRE">
+                        <label for="aboutMe" class="lblME">SOBRE MIN</label>
+                        <input type="text" name="aboutMe" id="aboutME" class="inptSOBRE">
                     </div>
                         <button type="submit" class="btnLeft">Salvar alterações</button>
                     </form>

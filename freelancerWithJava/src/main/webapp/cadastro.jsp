@@ -13,20 +13,33 @@
         </ul>
     </nav>
 
+
     <div class="formDiv">
       <form action="create-user" method = "post" class="form">
+        
+        <div class="textfield">
         <label for="">USERNAME</label>
         <input type="text" name="userName" id="userName" >
+      </div>
+        <div class="textfield">
         <label for="">NOME </label>
         <input type="text" name="nome" id="nome" >
+      </div>
+        <div class="textfield">
         <label for="">SOBRENOME</label>
         <input type="text" name="sobrenome" id="sobrenome">
+      </div>
+        <div class="textfield">
         <label for="">EMAIL</label>
         <input type="email" name="email" id="email" >
+      </div>
+        <div class="textfield">
         <label for="">SENHA</label>
         <input type="password" name="pass" id="pass" >
-        <button type="submit" class="botao">ENVIAR</button>
+        </div>
+        <button type="submit" class="btnLeft">ENVIAR</button>
       </form>
     </div>
+
 </body>
 </html>
