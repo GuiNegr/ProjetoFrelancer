@@ -18,7 +18,7 @@
     <div class="formDiv">
       
         
-        <form action="login-servlet" class="form" method="post">
+        <form action="login-servlet" class="form" method="get">
           <div class="textfield">
           <label for="">USERNAME</label>
           <input type="text" name="username" id="username">
