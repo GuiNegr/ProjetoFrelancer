@@ -26,21 +26,31 @@ public class LoginServlet extends HttpServlet {
 
         if (verify) {
             people = pc.returnLogin(people);
+            req.getSession().setAttribute("people",people);
 
-            HttpSession session = req.getSession();
-            session.setAttribute("pessoa",people);
-            System.out.println(people);
             resp.sendRedirect("/ProfileServlet");
         } else {
             req.setAttribute("message", "Erro de credencial");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
-
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userName = req.getParameter("username");
+        String pass = req.getParameter("password");
 
+        People people = new People(userName,pass);
+        PeopleController pc = new PeopleController();
+        boolean verify = pc.verify(people);
+
+        if (verify) {
+            people = pc.returnLogin(people);
+            req.getSession().setAttribute("people",people);
+            resp.sendRedirect("/ProfileServlet");
+        } else {
+            req.setAttribute("message", "Erro de credencial");
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
+        }
     }
 }
