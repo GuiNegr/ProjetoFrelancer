@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%=session.getAttribute("people")%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,26 +23,26 @@
             </form>
         </div>
         <div class="formPerfil">
-            <form action="/ProfileServlet" method="get">
+            <form action="/ProfileServlet" method="post">
                 <div class="textfield">
                     <label for="nome" class="lbNome">Nome</label>
-                    <input type="text" name="nome" id="nome" class="inpNom" value="${sessionScope.people.nome}">
+                    <input type="text" name="nome" id="nome" class="inpNom" value="${sessionScope.user.nome}">
                 </div>
                 <div class="textfield">
                     <label for="sobrenome" class="lbSobrenome">Sobrenome</label>
-                    <input type="text" name="sobrenome" id="sobrenome" class="inpSobr" value="${sessionScope.people.sobrenome}">
+                    <input type="text" name="sobrenome" id="sobrenome" class="inpSobr" value="${sessionScope.user.sobrenome}">
                 </div>
                 <div class="textfield">
                     <label for="telefone" class="lbTelefone">Telefone</label>
-                    <input type="text" name="telefone" id="telefone" class="inpTele">
+                    <input type="text" name="telefone" id="telefone" class="inpTele" value="${sessionScope.user.telefone}">
                 </div>
                 <div class="textfield">
                     <label for="email" class="lblEmail">E-MAIL</label>
-                    <input type="text" name="email" id="email" class="inpEmail">
+                    <input type="text" name="email" id="email" class="inpEmail" value="${sessionScope.user.email}">
                 </div>
                 <div class="textfield">
                     <label for="aboutMe" class="lblME">SOBRE MIN</label>
-                    <input type="text" name="aboutMe" id="aboutME" class="inptSOBRE">
+                    <input type="text" name="aboutMe" id="aboutME" class="inptSOBRE"value="${sessionScope.user.aboutMe}">
                 </div>
                 <button type="submit" class="btnLeft">Salvar alterações</button>
             </form>

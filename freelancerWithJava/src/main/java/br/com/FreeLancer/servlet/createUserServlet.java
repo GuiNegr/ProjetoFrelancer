@@ -1,7 +1,7 @@
 package br.com.FreeLancer.servlet;
 
-import br.com.FreeLancer.controller.PeopleController;
-import br.com.FreeLancer.model.People;
+import br.com.FreeLancer.controller.userController;
+import br.com.FreeLancer.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,10 +21,10 @@ public class createUserServlet extends HttpServlet {
         String userName = req.getParameter("userName").toLowerCase();
         String email = req.getParameter("email").toLowerCase();
 
-        People people = new People(userName,pass,nome,sobrenome,email);
-        PeopleController pc = new PeopleController();
-        pc.createCad(people);
-        System.out.println(people);
+        User user = new User(userName,pass,nome,sobrenome,email);
+        userController pc = new userController();
+        pc.createCad(user);
+        System.out.println(user);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }

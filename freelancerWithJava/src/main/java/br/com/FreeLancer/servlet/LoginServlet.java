@@ -1,14 +1,13 @@
 package br.com.FreeLancer.servlet;
 
-import br.com.FreeLancer.controller.PeopleController;
-import br.com.FreeLancer.model.People;
+import br.com.FreeLancer.controller.userController;
+import br.com.FreeLancer.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -20,34 +19,15 @@ public class LoginServlet extends HttpServlet {
         String userName = req.getParameter("username");
         String pass = req.getParameter("password");
 
-        People people = new People(userName,pass);
-        PeopleController pc = new PeopleController();
-        boolean verify = pc.verify(people);
+        User user = new User(userName,pass);
+        userController pc = new userController();
+        boolean verify = pc.verify(user);
 
         if (verify) {
-            people = pc.returnLogin(people);
-            req.getSession().setAttribute("people",people);
-
-            resp.sendRedirect("/ProfileServlet");
-        } else {
-            req.setAttribute("message", "Erro de credencial");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
-        }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userName = req.getParameter("username");
-        String pass = req.getParameter("password");
-
-        People people = new People(userName,pass);
-        PeopleController pc = new PeopleController();
-        boolean verify = pc.verify(people);
-
-        if (verify) {
-            people = pc.returnLogin(people);
-            req.getSession().setAttribute("people",people);
-            resp.sendRedirect("/ProfileServlet");
+            user = pc.returnLogin(user);
+            req.getSession().setAttribute("user", user);
+            System.out.println(user);
+            resp.sendRedirect("homeCad.jsp");
         } else {
             req.setAttribute("message", "Erro de credencial");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

@@ -1,13 +1,13 @@
 package br.com.FreeLancer.servlet;
 
-import br.com.FreeLancer.model.People;
+import br.com.FreeLancer.controller.userController;
+import br.com.FreeLancer.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -16,17 +16,23 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        People people = (People) session.getAttribute("people");
-        req.setAttribute("people", people);
-        req.getRequestDispatcher("/homeCad.jsp").forward(req, resp);
-    }
+        String nome = req.getParameter("nome");
+        String sobrenome = req.getParameter("sobrenome");
+        String telefone = req.getParameter("telefone");
+        String aboutMe = req.getParameter("aboutMe");
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        People people = (People) session.getAttribute("people");
-        req.getSession().setAttribute("people",people);
-        req.getRequestDispatcher("/homeCad.jsp").forward(req, resp);
+        User user = (User) req.getSession().getAttribute("user");
+
+        user.setNome(nome);
+        user.setSobrenome(sobrenome);
+        user.setTelefone(telefone);
+        user.setAboutMe(aboutMe);
+
+        userController usc = new userController();
+
+        usc.updateCad(user);
+        req.getSession().setAttribute("user", user);
+
+        resp.sendRedirect("homeCad.jsp");
     }
 }
