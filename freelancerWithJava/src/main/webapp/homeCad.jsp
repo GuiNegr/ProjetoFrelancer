@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +16,13 @@
     </nav>
     <div class="mainDiv">
         <div class="imgDivPerfilLeft">
-            <form class="FormPerfil">
+            <form class="FormPerfil" method="post" action="/StorageIMG" enctype="multipart/form-data" >
                 <img src="img/Building hashtag-amico.svg" alt="" class="img">
+                <input class="btnLeft"
+                type="file"
+                id="image_uploads"
+                name="image_uploads"
+                accept=".jpg, .jpeg, .png"/>
                 <button type="submit" class="btnLeft">Buscar imagen</button>
             </form>
         </div>

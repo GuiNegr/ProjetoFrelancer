@@ -1,6 +1,7 @@
 package br.com.FreeLancer.controller;
 
 import br.com.FreeLancer.model.User;
+import org.apache.commons.fileupload.FileItem;
 
 import java.sql.*;
 
@@ -108,6 +109,20 @@ public class userController {
             preparedStatement.execute();
         }catch (SQLException e){
             System.out.println("UPDATE ERROR : "+e.getMessage());
+        }
+    }
+
+    public void insertImg(FileItem img,User user){
+        String sql = "update frelancer set img = ? where userName = ?";
+
+        try {
+            Connection conect = new Connecta().conecta();
+            PreparedStatement preparedStatement = conect.prepareStatement(sql);
+            preparedStatement.setBlob(1, img.getInputStream(), img.getSize());
+            preparedStatement.setString(2,user.getUserName());
+            preparedStatement.execute();
+        }catch (Exception e){
+            System.out.println("INSERT IMG ERROR: "+e.getMessage());
         }
     }
 }
